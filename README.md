@@ -52,7 +52,7 @@ Esta página está sendo moldada por **Wall**, o filósofo, espiritualista, escr
 
 ## VII. Licença
 
-O código-fonte desta landing page está disponível sob a [Licença MIT](LICENSE) (Você precisará adicionar um arquivo LICENSE com o texto da licença MIT, se desejar). O conteúdo textual e a filosofia do Projeto Prometheus são propriedade intelectual de Wall.
+O código-fonte desta landing page está disponível sob a [Licença MIT](LICENSE) O conteúdo textual e a filosofia do Projeto Prometheus são propriedade intelectual de Wall.
 
 ---
 
