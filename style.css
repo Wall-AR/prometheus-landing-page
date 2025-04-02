@@ -255,4 +255,198 @@ body {
 
 /* --- Fim dos Estilos da Seção Manifesto --- */
 
+/* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
+/* Nota de Wall: O ponto de troca, onde a curiosidade se torna compromisso. Deve ser claro, confiável e visualmente atraente. */
+
+.ebook-section {
+    background-color: #0c0c0c; /* Um fundo ligeiramente diferente para variar, ou mantenha #0a0a0a / #101010. */
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+    /* Considerar uma borda sutil se quiser mais separação */
+    /* border-top: 1px solid rgba(212, 194, 154, 0.1); */
+}
+
+/* --- Layout em Duas Colunas --- */
+/* Nota de Wall: Dividimos o espaço, equilibrando a imagem (o símbolo) e o texto/ação (a substância). */
+.ebook-layout {
+    display: flex; /* Ativa o Flexbox para o layout lado a lado. */
+    align-items: center; /* Centraliza os itens verticalmente se tiverem alturas diferentes. */
+    gap: 50px; /* Espaço horizontal entre as colunas. */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para baixo em telas menores. */
+}
+
+.ebook-image-column {
+    flex: 1; /* Tenta ocupar o espaço disponível. */
+    min-width: 280px; /* Largura mínima antes de quebrar. */
+    text-align: center; /* Centraliza a imagem dentro da coluna. */
+}
+
+.ebook-content-column {
+    flex: 1.5; /* Dá um pouco mais de espaço para o conteúdo e formulário. */
+    min-width: 300px; /* Largura mínima antes de quebrar. */
+}
+
+/* --- Imagem da Capa do Ebook --- */
+/* Nota de Wall: A face visível do conhecimento oferecido. */
+.ebook-cover {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a coluna. */
+    height: auto; /* Mantém a proporção. */
+    border-radius: 5px; /* Cantos suavemente arredondados. */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade. */
+    display: inline-block; /* Para aplicar sombra corretamente. */
+}
+
+/* --- Subtítulo da Seção Ebook --- */
+.ebook-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: #e0d0a8;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* --- Lista de Benefícios --- */
+/* Nota de Wall: As promessas, claras e diretas, guiadas por pequenos símbolos de luz. */
+.ebook-benefits {
+    list-style: none; /* Remove os marcadores padrão da lista. */
+    padding-left: 0; /* Remove o padding padrão da lista. */
+    margin-bottom: 30px;
+}
+
+.ebook-benefits li {
+    margin-bottom: 15px;
+    display: flex; /* Alinha o ícone e o texto. */
+    align-items: flex-start; /* Alinha no topo se o texto tiver múltiplas linhas. */
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #c0b08a;
+}
+
+.benefit-icon {
+    color: #d4c29a; /* Cor dourada para os ícones. */
+    margin-right: 12px; /* Espaço entre o ícone e o texto. */
+    font-size: 1.1em; /* Tamanho ligeiramente maior que o texto. */
+    margin-top: 0.1em; /* Ajuste fino vertical. */
+    width: 20px; /* Garante alinhamento consistente. */
+    text-align: center;
+}
+
+/* --- Formulário de Inscrição --- */
+/* Nota de Wall: O portal da troca. Deve ser simples, claro e seguro. */
+.ebook-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaço entre os campos do formulário. */
+}
+
+.form-label {
+    display: block; /* Faz o label ocupar a linha inteira. */
+    font-size: 0.9rem;
+    color: #bfa975;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%; /* Ocupa toda a largura disponível. */
+    padding: 12px 15px; /* Espaçamento interno. */
+    border: 1px solid rgba(212, 194, 154, 0.3); /* Borda sutil dourada. */
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo escuro semitransparente. */
+    color: #d4c29a; /* Cor do texto digitado. */
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif; /* Garante a fonte correta. */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder { /* Estiliza o texto do placeholder. */
+    color: rgba(212, 194, 154, 0.5);
+    font-style: italic;
+}
+
+.form-input:focus { /* Estilo quando o campo está selecionado. */
+    outline: none; /* Remove o contorno padrão do navegador. */
+    border-color: #d4c29a; /* Borda mais forte ao focar. */
+    box-shadow: 0 0 10px rgba(212, 194, 154, 0.2); /* Brilho sutil ao focar. */
+}
+
+/* --- Botão de Envio do Formulário --- */
+.form-submit-button {
+    width: 100%; /* Faz o botão ocupar a largura total. */
+    padding: 15px 20px; /* Botão um pouco maior para destaque. */
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-top: 10px; /* Espaço acima do botão. */
+    /* Herda o estilo base de .cta-button, incluindo hover. */
+}
+
+/* --- Nota de Privacidade --- */
+/* Nota de Wall: A garantia de respeito no mundo digital. */
+.privacy-note {
+    font-size: 0.85rem;
+    color: rgba(212, 194, 154, 0.7); /* Cor mais suave, menos proeminente. */
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o ícone e o texto. */
+    gap: 8px; /* Espaço entre o ícone e o texto. */
+}
+
+.lock-icon {
+    font-size: 0.9em; /* Tamanho do ícone de cadeado. */
+}
+
+
+/* --- Ajustes Responsivos para a Seção Ebook --- */
+@media (max-width: 768px) {
+    .ebook-layout {
+        gap: 30px; /* Reduz o espaço entre colunas antes de quebrar. */
+        flex-direction: column; /* Força a quebra para empilhar as colunas. */
+    }
+
+    .ebook-image-column,
+    .ebook-content-column {
+        flex-basis: 100%; /* Garante que cada coluna ocupe a largura total ao empilhar. */
+        flex: none; /* Reseta o fator de crescimento flex. */
+    }
+
+     .ebook-cover {
+        max-width: 60%; /* Reduz um pouco a imagem para não dominar a tela. */
+        margin-bottom: 20px; /* Adiciona espaço abaixo da imagem quando empilhado. */
+    }
+
+     .ebook-content-column {
+         text-align: center; /* Centraliza o texto e o formulário na coluna. */
+     }
+
+     .ebook-benefits {
+         text-align: left; /* Mantém o texto da lista alinhado à esquerda para legibilidade. */
+         display: inline-block; /* Permite centralizar o bloco da lista. */
+         margin-left: auto;
+         margin-right: auto;
+     }
+
+     .form-label {
+         text-align: left; /* Alinha os labels à esquerda. */
+     }
+}
+
+@media (max-width: 480px) {
+    .ebook-section {
+        padding: 50px 0;
+    }
+
+     .ebook-cover {
+        max-width: 70%;
+    }
+
+     .form-submit-button {
+         padding: 12px 15px;
+     }
+}
+
+/* --- Fim dos Estilos da Seção Ebook --- */
+
 /* --- Estilos do Rodapé (virão no final) --- */
