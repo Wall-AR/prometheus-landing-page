@@ -170,5 +170,89 @@ body {
 /* --- Fim dos Estilos da Seção Hero --- */
 
 /* Os estilos das próximas seções virão aqui... */
+/* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
+/* Nota de Wall: O espaço para a palavra falada, a filosofia revelada. Deve ser sóbrio, focado, convidativo à leitura. */
+
+.manifesto-section {
+    background-color: #101010; /* Um tom ligeiramente diferente do hero, ou o mesmo, para criar ritmo ou unidade. Usei um pouco mais claro que o body. */
+    padding: 80px 0; /* Espaçamento vertical generoso para dar peso à seção. */
+    border-top: 1px solid rgba(212, 194, 154, 0.1); /* Uma linha sutil separando da seção anterior. */
+    position: relative; /* Para elementos internos posicionados, se necessário. */
+    z-index: 1; /* Garante que fique acima de elementos de fundo gerais. */
+}
+
+/* --- Título Padrão de Seção --- */
+/* Nota de Wall: A assinatura de cada novo capítulo da nossa jornada. */
+.section-title {
+    font-family: 'Playfair Display', serif; /* A fonte da profundidade. */
+    font-size: clamp(2rem, 5vw, 3rem); /* Tamanho imponente, mas adaptável. */
+    color: #e0d0a8; /* O dourado mais brilhante para destaque. */
+    text-align: center; /* Centralizado, como um ponto focal. */
+    margin-bottom: 15px; /* Espaço antes da linha divisória. */
+    font-weight: 700;
+}
+
+/* --- Linha Divisória Sob o Título --- */
+/* Nota de Wall: Um traço de luz na escuridão, separando o conceito do conteúdo. */
+.title-divider {
+    width: 80px; /* Largura fixa da linha. */
+    height: 2px; /* Espessura da linha. */
+    background-color: #d4c29a; /* Cor dourada padrão. */
+    margin: 0 auto 40px auto; /* Centraliza (auto nas laterais) e adiciona espaço abaixo. */
+    border-radius: 1px; /* Bordas suavemente arredondadas. */
+}
+
+/* --- Conteúdo do Manifesto --- */
+/* Nota de Wall: Onde as palavras fluem. Precisa de clareza e espaço para respirar. */
+.manifesto-content {
+    max-width: 750px; /* Limita a largura do texto para melhor legibilidade. */
+    margin: 0 auto; /* Centraliza o bloco de texto. */
+    text-align: justify; /* Texto justificado para um visual mais formal, como em livros. (Ou use 'left' se preferir). */
+    color: #c0b08a; /* Um tom de dourado ligeiramente mais suave para o corpo do texto. */
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Tamanho de fonte confortável para leitura. */
+    line-height: 1.8; /* Espaçamento entre linhas aumentado para facilitar a leitura longa. */
+}
+
+.manifesto-content p {
+    margin-bottom: 20px; /* Espaço entre os parágrafos. */
+}
+
+/* Remove a margem inferior do último parágrafo dentro do manifesto */
+.manifesto-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Ajustes Responsivos para a Seção Manifesto --- */
+/* Nota de Wall: A mensagem deve ser clara em qualquer tela. */
+
+@media (max-width: 768px) {
+    .manifesto-section {
+        padding: 60px 0; /* Reduz o padding vertical em telas menores. */
+    }
+
+    .manifesto-content {
+        text-align: left; /* Texto alinhado à esquerda pode ser mais fácil de ler em telas estreitas. */
+    }
+}
+
+@media (max-width: 480px) {
+     .manifesto-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+         font-size: clamp(1.8rem, 7vw, 2.5rem); /* Ajusta tamanho do título para celular. */
+    }
+
+     .title-divider {
+        margin-bottom: 30px; /* Reduz espaço abaixo da linha. */
+    }
+
+     .manifesto-content {
+        font-size: clamp(0.95rem, 4vw, 1rem); /* Ajusta tamanho do texto para celular. */
+    }
+}
+
+/* --- Fim dos Estilos da Seção Manifesto --- */
 
 /* --- Estilos do Rodapé (virão no final) --- */
