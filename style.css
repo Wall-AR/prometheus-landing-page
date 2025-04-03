@@ -1,161 +1,361 @@
 /* -------------------------------------------------- */
 /*             STYLE.CSS - A ALMA VISUAL              */
 /*         Onde damos forma e cor ao Prometheus       */
+/*              (Revisado e Otimizado)                */
 /* -------------------------------------------------- */
 
 /* --- Reset Básico e Fundamentos --- */
-/* Nota de Wall: Antes de construir, limpamos o terreno. Removemos as ilusões padrão do navegador. */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* A caixa que contém a essência, medida de dentro para fora. */
+    box-sizing: border-box;
+}
+
+/* --- Variáveis CSS (Opcional, mas bom para manutenção) --- */
+:root {
+    --color-background-dark: #0a0a0a;
+    --color-background-medium: #101010;
+    --color-background-light: #1a1a1a; /* Exemplo para futuras seções */
+    --color-gold-primary: #d4c29a;
+    --color-gold-secondary: #e0d0a8;
+    --color-gold-soft: #c0b08a;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
 }
 
 /* --- Estilos Globais do Corpo --- */
-/* Nota de Wall: A tela em branco, o vazio primordial de onde tudo emerge. Definimos a escuridão e a luz padrão. */
 body {
-    font-family: 'Montserrat', sans-serif; /* A voz clara e direta da razão. */
-    background-color: #0a0a0a; /* A profunda escuridão do desconhecido, o potencial puro. */
-    color: #d4c29a; /* O dourado sutil da sabedoria antiga, nossa cor base. */
-    line-height: 1.6; /* O respiro entre as linhas, o espaço para a reflexão. */
-    overflow-x: hidden; /* Evitamos o caos lateral, mantemos o foco no caminho vertical. */
-    display: flex; /* Usamos flexbox para orquestrar o layout geral. */
-    flex-direction: column; /* Empilhamos as seções, como camadas de conhecimento. */
-    min-height: 100vh; /* Garantimos que o corpo ocupe, no mínimo, toda a tela verticalmente. */
+    font-family: var(--font-sans);
+    background-color: var(--color-background-dark);
+    color: var(--color-gold-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- Container Universal --- */
-/* Nota de Wall: Um recipiente para nossas ideias, mantendo-as focadas e centradas, mesmo na vastidão. */
 .container {
-    width: 90%; /* Ocupa a maior parte da tela, mas com margens para respirar. */
-    max-width: 1140px; /* Um limite para não se dispersar demais em telas grandes. */
-    margin-left: auto; /* Centraliza magicamente no espaço disponível. */
+    width: 90%;
+    max-width: 1140px;
+    margin-left: auto;
     margin-right: auto;
-    padding-left: 15px; /* Pequenos espaços internos, as bordas do nosso canvas. */
+    padding-left: 15px;
     padding-right: 15px;
-    position: relative; /* Permite que elementos internos sejam posicionados em relação a ele. */
-    z-index: 1; /* Garante que o conteúdo do container fique acima de elementos de fundo (como a imagem). */
+    position: relative; /* Necessário para z-index funcionar corretamente */
+    z-index: 1; /* Conteúdo do container acima de overlays/fundos */
 }
-
 
 /* --- Seção 1: O Impacto Inicial (Hero Section) --- */
-/* Nota de Wall: O portal de entrada. Deve ser imponente, ocupar o espaço, convidar à contemplação. */
 .hero-section {
-    min-height: 100vh; /* Ocupa toda a altura da janela ao carregar. */
-    display: flex; /* Usa flexbox para alinhar o conteúdo interno. */
-    flex-direction: column; /* Empilha os elementos (imagem, texto, botão). */
-    align-items: center; /* Centraliza horizontalmente. */
-    justify-content: center; /* Tenta centralizar verticalmente o conteúdo principal. */
-    text-align: center; /* Alinha todo o texto ao centro. */
-    padding: 60px 0; /* Espaçamento vertical interno. */
-    position: relative; /* Crucial para posicionar a imagem absolutamente dentro dela. */
-    overflow: hidden; /* Esconde qualquer parte da imagem que possa transbordar. */
-    z-index: 0; /* Define a ordem de empilhamento base para a seção. */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+    position: relative; /* Crucial para o overlay e o fundo */
+    overflow: hidden;
+    /* Nota de Wall: A imagem agora é o próprio tecido da seção, o cenário do nosso primeiro ato. */
+    background-image: url('prometheus background.png'); /* <<<<<<<<<<<<<<< SEU ARQUIVO AQUI */
+    background-size: cover; /* Cobre toda a área, mantendo proporção */
+    background-position: center center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Efeito parallax sutil (opcional, remova se não gostar) */
+    z-index: 0; /* Camada base */
 }
 
-/* --- A Imagem de Prometheus --- */
-/* Nota de Wall: O símbolo visual da nossa busca. Não apenas uma imagem, mas um arquétipo flutuando na escuridão. */
-.prometheus-hero-image {
-    position: absolute; /* Retirada do fluxo normal, para posicionamento preciso. */
-    bottom: 5%; /* Posicionada perto da base da seção. Ajuste fino aqui! */
-    left: 50%; /* Começa no centro horizontal. */
-    transform: translateX(-50%); /* Puxa de volta pela metade da sua largura para centralizar de fato. */
-    max-width: 45%; /* Tamanho relativo à largura da seção. Ajuste conforme necessário. */
-    height: auto; /* Mantém a proporção da imagem. */
-    opacity: 0.6; /* Uma leve transparência, como uma memória ou um sonho. */
-    z-index: 0; /* Fica atrás do conteúdo do .container (texto e botão). */
-    pointer-events: none; /* A imagem não interfere com cliques no texto/botão sobre ela. */
+/* Overlay para Contraste */
+/* Nota de Wall: Um véu sutil sobre a imagem, para que as palavras brilhem sem ofuscar o fundo. */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Overlay preto semitransparente - ajuste a opacidade (0.0 a 1.0) */
+    z-index: 0; /* Fica entre o fundo da seção e o conteúdo (.container) */
+}
+
+/* Garante que o conteúdo dentro do .container fique acima do overlay */
+.hero-section .container {
+    z-index: 1;
 }
 
 /* --- O Título Principal --- */
-/* Nota de Wall: A grande questão, em letras que carregam peso e elegância. */
 .main-title {
-    font-family: 'Playfair Display', serif; /* A fonte da tradição, da reflexão profunda. */
-    font-size: clamp(2.8rem, 6vw, 4.8rem); /* Tamanho que se adapta, como a sabedoria às circunstâncias. */
-    font-weight: 700; /* Forte, assertivo. */
-    color: #e0d0a8; /* Um dourado mais brilhante, destacando-se na escuridão. */
-    line-height: 1.2; /* Espaçamento entre as linhas do título. */
-    margin-bottom: 15px; /* Um respiro antes do subtítulo. */
-    position: relative; /* Garante que fique acima da imagem (junto com z-index do container). */
-    z-index: 1;
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 700;
+    color: var(--color-gold-secondary);
+    line-height: 1.2;
+    margin-bottom: 15px;
+    /* z-index não é mais necessário aqui, pois o container pai já está acima */
 }
 
 /* --- O Subtítulo --- */
-/* Nota de Wall: A explicação concisa, a promessa sussurrada. */
 .subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.3rem); /* Tamanho adaptável, claro e legível. */
-    color: #d4c29a; /* Nosso dourado padrão. */
-    margin-bottom: 30px; /* Espaço antes do chamado à ação. */
-    max-width: 600px; /* Evita que fique muito largo em telas grandes. */
-    margin-left: auto; /* Centraliza o bloco de texto se tiver max-width. */
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--color-gold-primary);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
     margin-right: auto;
-    position: relative; /* Garante que fique acima da imagem. */
-    z-index: 1;
 }
 
 /* --- O Botão de Chamada para Ação (CTA) --- */
-/* Nota de Wall: O convite formal para iniciar a jornada. Deve ser claro, distinto e convidativo. */
 .cta-button {
-    font-family: 'Playfair Display', serif; /* A mesma fonte nobre do título. */
-    display: inline-block; /* Permite definir padding e margens corretamente. */
-    background-color: transparent; /* Começa etéreo, apenas um contorno. */
-    border: 1px solid #d4c29a; /* A borda dourada, definindo o espaço da ação. */
-    color: #d4c29a; /* Texto na cor da sabedoria. */
-    padding: 12px 35px; /* Espaçamento interno, o conforto do clique. */
-    border-radius: 50px; /* Cantos suaves, como ideias que fluem. */
-    font-size: clamp(1rem, 2.2vw, 1.2rem); /* Tamanho de texto adaptável. */
-    text-decoration: none; /* Removemos o sublinhado padrão dos links, pois é um botão. */
-    cursor: pointer; /* O cursor muda, indicando interatividade. */
-    transition: all 0.3s ease; /* Uma transição suave ao interagir, como o desabrochar de uma ideia. */
-    position: relative; /* Garante que fique acima da imagem. */
-    z-index: 1;
-    margin-top: 10px; /* Pequena margem acima do botão. */
+    font-family: var(--font-serif);
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid var(--color-gold-primary);
+    color: var(--color-gold-primary);
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-/* --- Efeito Hover no Botão --- */
-/* Nota de Wall: A resposta ao interesse, o brilho que surge com a intenção. */
 .cta-button:hover,
-.cta-button:focus { /* :focus é importante para acessibilidade via teclado. */
-    background-color: #d4c29a; /* O botão se preenche com a cor da sabedoria. */
-    color: #0a0a0a; /* O texto se torna a cor da escuridão, um contraste revelador. */
-    transform: translateY(-2px); /* Um leve salto, indicando prontidão. */
-    box-shadow: 0 4px 15px rgba(212, 194, 154, 0.2); /* Uma aura sutil de luz. */
+.cta-button:focus {
+    background-color: var(--color-gold-primary);
+    color: var(--color-background-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 194, 154, 0.2);
+}
+
+/* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
+.manifesto-section {
+    background-color: var(--color-background-medium);
+    padding: 80px 0;
+    border-top: 1px solid rgba(212, 194, 154, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Título Padrão de Seção --- */
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-gold-secondary);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* --- Linha Divisória Sob o Título --- */
+.title-divider {
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-gold-primary);
+    margin: 0 auto 40px auto;
+    border-radius: 1px;
+}
+
+/* --- Conteúdo do Manifesto --- */
+.manifesto-content {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: justify;
+    color: var(--color-gold-soft);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.8;
+}
+
+.manifesto-content p {
+    margin-bottom: 20px;
+}
+
+.manifesto-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
+.ebook-section {
+    background-color: var(--color-background-dark); /* Voltando ao mais escuro */
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(212, 194, 154, 0.1); /* Adicionando borda para separar */
+}
+
+.ebook-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.ebook-image-column {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.ebook-content-column {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.ebook-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+}
+
+.ebook-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--color-gold-secondary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.ebook-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.ebook-benefits li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: var(--color-gold-soft);
+}
+
+.benefit-icon {
+    color: var(--color-gold-primary);
+    margin-right: 12px;
+    font-size: 1.1em;
+    margin-top: 0.1em;
+    width: 20px;
+    text-align: center;
+}
+
+.ebook-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-gold-soft); /* Ajuste leve na cor */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(212, 194, 154, 0.3);
+    background-color: rgba(0, 0, 0, 0.3); /* Leve ajuste na transparência */
+    color: var(--color-gold-primary);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(212, 194, 154, 0.5);
+    font-style: italic;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 10px rgba(212, 194, 154, 0.2);
+}
+
+.form-submit-button {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-top: 10px;
+}
+
+.privacy-note {
+    font-size: 0.85rem;
+    color: rgba(212, 194, 154, 0.7);
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.lock-icon {
+    font-size: 0.9em;
 }
 
 
-/* --- Ajustes Responsivos --- */
-/* Nota de Wall: A sabedoria deve se adaptar a todos os recipientes. Ajustamos para telas menores. */
+/* --- Ajustes Responsivos Globais --- */
+@media (max-width: 768px) {
+    .manifesto-section,
+    .ebook-section {
+        padding: 60px 0;
+    }
 
-@media (max-width: 768px) { /* Tablets e celulares maiores em paisagem */
-    .prometheus-hero-image {
-        max-width: 60%; /* Imagem um pouco maior em relação à tela. */
-        opacity: 0.5; /* Talvez mais transparente para não brigar com o texto. */
-        bottom: 10%;
+    .manifesto-content {
+        text-align: left;
+    }
+
+    .ebook-layout {
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .ebook-image-column,
+    .ebook-content-column {
+        flex-basis: 100%;
+        flex: none;
+    }
+
+     .ebook-cover {
+        max-width: 60%;
+        margin-bottom: 20px;
+    }
+
+     .ebook-content-column {
+         text-align: center;
+     }
+
+     .ebook-benefits {
+         text-align: left;
+         display: inline-block;
+     }
+
+     .form-label {
+         text-align: left;
+     }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        background-attachment: scroll; /* Desativa parallax em mobile (pode consumir recursos) */
+    }
+
+    .manifesto-section,
+    .ebook-section {
+        padding: 40px 0;
     }
 
     .main-title {
-        margin-bottom: 10px;
-    }
-
-    .subtitle {
-        margin-bottom: 25px;
-    }
-}
-
-@media (max-width: 480px) { /* Celulares em retrato */
-     .hero-section {
-        /* Poderíamos reduzir o min-height se necessário, mas 100vh geralmente funciona */
-         padding: 40px 0; /* Menos padding vertical */
-    }
-
-    .prometheus-hero-image {
-        max-width: 75%; /* Imagem ainda maior para ter impacto. */
-        bottom: 15%; /* Sobe um pouco mais. */
-        opacity: 0.4;
-    }
-
-     .main-title {
-        font-size: clamp(2.2rem, 8vw, 3rem); /* Ajusta faixa de tamanho para telas pequenas. */
+        font-size: clamp(2.2rem, 8vw, 3rem);
     }
 
     .subtitle {
@@ -163,290 +363,33 @@ body {
     }
 
     .cta-button {
-        padding: 10px 30px; /* Botão ligeiramente menor. */
-    }
-}
-
-/* --- Fim dos Estilos da Seção Hero --- */
-
-/* Os estilos das próximas seções virão aqui... */
-/* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
-/* Nota de Wall: O espaço para a palavra falada, a filosofia revelada. Deve ser sóbrio, focado, convidativo à leitura. */
-
-.manifesto-section {
-    background-color: #101010; /* Um tom ligeiramente diferente do hero, ou o mesmo, para criar ritmo ou unidade. Usei um pouco mais claro que o body. */
-    padding: 80px 0; /* Espaçamento vertical generoso para dar peso à seção. */
-    border-top: 1px solid rgba(212, 194, 154, 0.1); /* Uma linha sutil separando da seção anterior. */
-    position: relative; /* Para elementos internos posicionados, se necessário. */
-    z-index: 1; /* Garante que fique acima de elementos de fundo gerais. */
-}
-
-/* --- Título Padrão de Seção --- */
-/* Nota de Wall: A assinatura de cada novo capítulo da nossa jornada. */
-.section-title {
-    font-family: 'Playfair Display', serif; /* A fonte da profundidade. */
-    font-size: clamp(2rem, 5vw, 3rem); /* Tamanho imponente, mas adaptável. */
-    color: #e0d0a8; /* O dourado mais brilhante para destaque. */
-    text-align: center; /* Centralizado, como um ponto focal. */
-    margin-bottom: 15px; /* Espaço antes da linha divisória. */
-    font-weight: 700;
-}
-
-/* --- Linha Divisória Sob o Título --- */
-/* Nota de Wall: Um traço de luz na escuridão, separando o conceito do conteúdo. */
-.title-divider {
-    width: 80px; /* Largura fixa da linha. */
-    height: 2px; /* Espessura da linha. */
-    background-color: #d4c29a; /* Cor dourada padrão. */
-    margin: 0 auto 40px auto; /* Centraliza (auto nas laterais) e adiciona espaço abaixo. */
-    border-radius: 1px; /* Bordas suavemente arredondadas. */
-}
-
-/* --- Conteúdo do Manifesto --- */
-/* Nota de Wall: Onde as palavras fluem. Precisa de clareza e espaço para respirar. */
-.manifesto-content {
-    max-width: 750px; /* Limita a largura do texto para melhor legibilidade. */
-    margin: 0 auto; /* Centraliza o bloco de texto. */
-    text-align: justify; /* Texto justificado para um visual mais formal, como em livros. (Ou use 'left' se preferir). */
-    color: #c0b08a; /* Um tom de dourado ligeiramente mais suave para o corpo do texto. */
-    font-size: clamp(1rem, 2vw, 1.1rem); /* Tamanho de fonte confortável para leitura. */
-    line-height: 1.8; /* Espaçamento entre linhas aumentado para facilitar a leitura longa. */
-}
-
-.manifesto-content p {
-    margin-bottom: 20px; /* Espaço entre os parágrafos. */
-}
-
-/* Remove a margem inferior do último parágrafo dentro do manifesto */
-.manifesto-content p:last-child {
-    margin-bottom: 0;
-}
-
-/* --- Ajustes Responsivos para a Seção Manifesto --- */
-/* Nota de Wall: A mensagem deve ser clara em qualquer tela. */
-
-@media (max-width: 768px) {
-    .manifesto-section {
-        padding: 60px 0; /* Reduz o padding vertical em telas menores. */
-    }
-
-    .manifesto-content {
-        text-align: left; /* Texto alinhado à esquerda pode ser mais fácil de ler em telas estreitas. */
-    }
-}
-
-@media (max-width: 480px) {
-     .manifesto-section {
-        padding: 40px 0;
+        padding: 10px 30px;
     }
 
     .section-title {
-         font-size: clamp(1.8rem, 7vw, 2.5rem); /* Ajusta tamanho do título para celular. */
+         font-size: clamp(1.8rem, 7vw, 2.5rem);
     }
 
      .title-divider {
-        margin-bottom: 30px; /* Reduz espaço abaixo da linha. */
+        margin-bottom: 30px;
     }
 
      .manifesto-content {
-        font-size: clamp(0.95rem, 4vw, 1rem); /* Ajusta tamanho do texto para celular. */
-    }
-}
-
-/* --- Fim dos Estilos da Seção Manifesto --- */
-
-/* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
-/* Nota de Wall: O ponto de troca, onde a curiosidade se torna compromisso. Deve ser claro, confiável e visualmente atraente. */
-
-.ebook-section {
-    background-color: #0c0c0c; /* Um fundo ligeiramente diferente para variar, ou mantenha #0a0a0a / #101010. */
-    padding: 80px 0;
-    position: relative;
-    z-index: 1;
-    /* Considerar uma borda sutil se quiser mais separação */
-    /* border-top: 1px solid rgba(212, 194, 154, 0.1); */
-}
-
-/* --- Layout em Duas Colunas --- */
-/* Nota de Wall: Dividimos o espaço, equilibrando a imagem (o símbolo) e o texto/ação (a substância). */
-.ebook-layout {
-    display: flex; /* Ativa o Flexbox para o layout lado a lado. */
-    align-items: center; /* Centraliza os itens verticalmente se tiverem alturas diferentes. */
-    gap: 50px; /* Espaço horizontal entre as colunas. */
-    flex-wrap: wrap; /* Permite que as colunas quebrem para baixo em telas menores. */
-}
-
-.ebook-image-column {
-    flex: 1; /* Tenta ocupar o espaço disponível. */
-    min-width: 280px; /* Largura mínima antes de quebrar. */
-    text-align: center; /* Centraliza a imagem dentro da coluna. */
-}
-
-.ebook-content-column {
-    flex: 1.5; /* Dá um pouco mais de espaço para o conteúdo e formulário. */
-    min-width: 300px; /* Largura mínima antes de quebrar. */
-}
-
-/* --- Imagem da Capa do Ebook --- */
-/* Nota de Wall: A face visível do conhecimento oferecido. */
-.ebook-cover {
-    max-width: 100%; /* Garante que a imagem não ultrapasse a coluna. */
-    height: auto; /* Mantém a proporção. */
-    border-radius: 5px; /* Cantos suavemente arredondados. */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade. */
-    display: inline-block; /* Para aplicar sombra corretamente. */
-}
-
-/* --- Subtítulo da Seção Ebook --- */
-.ebook-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 1.8rem);
-    color: #e0d0a8;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-/* --- Lista de Benefícios --- */
-/* Nota de Wall: As promessas, claras e diretas, guiadas por pequenos símbolos de luz. */
-.ebook-benefits {
-    list-style: none; /* Remove os marcadores padrão da lista. */
-    padding-left: 0; /* Remove o padding padrão da lista. */
-    margin-bottom: 30px;
-}
-
-.ebook-benefits li {
-    margin-bottom: 15px;
-    display: flex; /* Alinha o ícone e o texto. */
-    align-items: flex-start; /* Alinha no topo se o texto tiver múltiplas linhas. */
-    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-    color: #c0b08a;
-}
-
-.benefit-icon {
-    color: #d4c29a; /* Cor dourada para os ícones. */
-    margin-right: 12px; /* Espaço entre o ícone e o texto. */
-    font-size: 1.1em; /* Tamanho ligeiramente maior que o texto. */
-    margin-top: 0.1em; /* Ajuste fino vertical. */
-    width: 20px; /* Garante alinhamento consistente. */
-    text-align: center;
-}
-
-/* --- Formulário de Inscrição --- */
-/* Nota de Wall: O portal da troca. Deve ser simples, claro e seguro. */
-.ebook-form {
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espaço entre os campos do formulário. */
-}
-
-.form-label {
-    display: block; /* Faz o label ocupar a linha inteira. */
-    font-size: 0.9rem;
-    color: #bfa975;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-input {
-    width: 100%; /* Ocupa toda a largura disponível. */
-    padding: 12px 15px; /* Espaçamento interno. */
-    border: 1px solid rgba(212, 194, 154, 0.3); /* Borda sutil dourada. */
-    background-color: rgba(0, 0, 0, 0.2); /* Fundo escuro semitransparente. */
-    color: #d4c29a; /* Cor do texto digitado. */
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif; /* Garante a fonte correta. */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-input::placeholder { /* Estiliza o texto do placeholder. */
-    color: rgba(212, 194, 154, 0.5);
-    font-style: italic;
-}
-
-.form-input:focus { /* Estilo quando o campo está selecionado. */
-    outline: none; /* Remove o contorno padrão do navegador. */
-    border-color: #d4c29a; /* Borda mais forte ao focar. */
-    box-shadow: 0 0 10px rgba(212, 194, 154, 0.2); /* Brilho sutil ao focar. */
-}
-
-/* --- Botão de Envio do Formulário --- */
-.form-submit-button {
-    width: 100%; /* Faz o botão ocupar a largura total. */
-    padding: 15px 20px; /* Botão um pouco maior para destaque. */
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    margin-top: 10px; /* Espaço acima do botão. */
-    /* Herda o estilo base de .cta-button, incluindo hover. */
-}
-
-/* --- Nota de Privacidade --- */
-/* Nota de Wall: A garantia de respeito no mundo digital. */
-.privacy-note {
-    font-size: 0.85rem;
-    color: rgba(212, 194, 154, 0.7); /* Cor mais suave, menos proeminente. */
-    margin-top: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza o ícone e o texto. */
-    gap: 8px; /* Espaço entre o ícone e o texto. */
-}
-
-.lock-icon {
-    font-size: 0.9em; /* Tamanho do ícone de cadeado. */
-}
-
-
-/* --- Ajustes Responsivos para a Seção Ebook --- */
-@media (max-width: 768px) {
-    .ebook-layout {
-        gap: 30px; /* Reduz o espaço entre colunas antes de quebrar. */
-        flex-direction: column; /* Força a quebra para empilhar as colunas. */
-    }
-
-    .ebook-image-column,
-    .ebook-content-column {
-        flex-basis: 100%; /* Garante que cada coluna ocupe a largura total ao empilhar. */
-        flex: none; /* Reseta o fator de crescimento flex. */
-    }
-
-     .ebook-cover {
-        max-width: 60%; /* Reduz um pouco a imagem para não dominar a tela. */
-        margin-bottom: 20px; /* Adiciona espaço abaixo da imagem quando empilhado. */
-    }
-
-     .ebook-content-column {
-         text-align: center; /* Centraliza o texto e o formulário na coluna. */
-     }
-
-     .ebook-benefits {
-         text-align: left; /* Mantém o texto da lista alinhado à esquerda para legibilidade. */
-         display: inline-block; /* Permite centralizar o bloco da lista. */
-         margin-left: auto;
-         margin-right: auto;
-     }
-
-     .form-label {
-         text-align: left; /* Alinha os labels à esquerda. */
-     }
-}
-
-@media (max-width: 480px) {
-    .ebook-section {
-        padding: 50px 0;
+        font-size: clamp(0.95rem, 4vw, 1rem);
     }
 
      .ebook-cover {
         max-width: 70%;
     }
 
+    .form-input {
+        padding: 10px 12px;
+    }
+
      .form-submit-button {
          padding: 12px 15px;
+         font-size: clamp(1rem, 2.8vw, 1.2rem);
      }
 }
 
-/* --- Fim dos Estilos da Seção Ebook --- */
-
-/* --- Estilos do Rodapé (virão no final) --- */
+/* --- Fim dos Estilos --- */
