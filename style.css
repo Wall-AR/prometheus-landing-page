@@ -1,7 +1,7 @@
 /* -------------------------------------------------- */
 /*             STYLE.CSS - A ALMA VISUAL              */
 /*         Onde damos forma e cor ao Prometheus       */
-/*              (Revisado e Otimizado)                */
+/*       (Revisado com Imagem 1:1 e Nova Paleta)      */
 /* -------------------------------------------------- */
 
 /* --- Reset Básico e Fundamentos --- */
@@ -11,14 +11,20 @@
     box-sizing: border-box;
 }
 
-/* --- Variáveis CSS (Opcional, mas bom para manutenção) --- */
+/* --- Variáveis CSS Derivadas da Imagem 'input_file_0.png' --- */
+/* Nota de Wall: As cores extraídas da própria chama e sombra, a essência visual. */
 :root {
-    --color-background-dark: #0a0a0a;
-    --color-background-medium: #101010;
-    --color-background-light: #1a1a1a; /* Exemplo para futuras seções */
-    --color-gold-primary: #d4c29a;
-    --color-gold-secondary: #e0d0a8;
-    --color-gold-soft: #c0b08a;
+    /* Fundos (Do mais escuro para o 'menos' escuro) */
+    --color-background-deep: #060504; /* Quase preto absoluto das sombras */
+    --color-background-medium: #0d0b09; /* Um tom muito sutilmente mais claro */
+
+    /* Dourados/Realces (Do mais suave ao mais brilhante) */
+    --color-gold-soft: #a87e4a;  /* Dourado suave para textos longos (pele/pano) */
+    --color-gold-primary: #c89f6c; /* Dourado principal para textos, bordas (pele iluminada) */
+    --color-gold-secondary: #e0b870;/* Dourado brilhante para títulos, hovers (reflexos) */
+    --color-flame-highlight: #f8c880; /* Toque extra de brilho para pontos focais (opcional) */
+
+    /* Fontes */
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
 }
@@ -26,8 +32,8 @@
 /* --- Estilos Globais do Corpo --- */
 body {
     font-family: var(--font-sans);
-    background-color: var(--color-background-dark);
-    color: var(--color-gold-primary);
+    background-color: var(--color-background-deep); /* O fundo mais escuro */
+    color: var(--color-gold-primary); /* Cor de texto padrão */
     line-height: 1.6;
     overflow-x: hidden;
     display: flex;
@@ -43,45 +49,49 @@ body {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    position: relative; /* Necessário para z-index funcionar corretamente */
-    z-index: 1; /* Conteúdo do container acima de overlays/fundos */
+    position: relative;
+    z-index: 1;
 }
 
 /* --- Seção 1: O Impacto Inicial (Hero Section) --- */
 .hero-section {
-    min-height: 100vh;
+    min-height: 100vh; /* Ainda ocupa a tela inicial */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centraliza conteúdo verticalmente */
     text-align: center;
-    padding: 60px 0;
-    position: relative; /* Crucial para o overlay e o fundo */
-    overflow: hidden;
-    /* Nota de Wall: A imagem agora é o próprio tecido da seção, o cenário do nosso primeiro ato. */
-    background-image: url('prometheus background.png'); /* <<<<<<<<<<<<<<< SEU ARQUIVO AQUI */
-    background-size: cover; /* Cobre toda a área, mantendo proporção */
-    background-position: center center; /* Centraliza a imagem */
-    background-attachment: fixed; /* Efeito parallax sutil (opcional, remova se não gostar) */
-    z-index: 0; /* Camada base */
-}
-
-/* Overlay para Contraste */
-/* Nota de Wall: Um véu sutil sobre a imagem, para que as palavras brilhem sem ofuscar o fundo. */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.65); /* Overlay preto semitransparente - ajuste a opacidade (0.0 a 1.0) */
-    z-index: 0; /* Fica entre o fundo da seção e o conteúdo (.container) */
-}
-
-/* Garante que o conteúdo dentro do .container fique acima do overlay */
-.hero-section .container {
+    padding: 60px 0 0 0; /* Padding só no topo inicialmente */
+    position: relative;
+    overflow: hidden; /* Esconde overflow da imagem se necessário */
+    background-color: var(--color-background-deep); /* Fundo escuro base */
     z-index: 1;
+}
+
+.hero-content-container {
+   padding-bottom: 5vh; /* Espaço dinâmico entre botão e imagem */
+   z-index: 1;
+}
+
+/* Estilos para o container da imagem */
+.hero-image-container {
+    width: 100%;
+    max-width: 550px; /* Ajuste o tamanho máximo da imagem 1:1 */
+    margin: 0 auto;
+    padding: 0 15px;
+    line-height: 0;
+    margin-top: auto; /* Empurra para baixo */
+}
+
+/* Estilos para a imagem 1:1 de Prometheus */
+.hero-prometheus-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 55vh; /* Limita a altura (ajuste conforme gosto) */
+    object-fit: contain;
+    /* Opcional: Leve fade-out na base para integrar melhor */
+    /* mask-image: linear-gradient(to bottom, black 85%, transparent 100%); */
+    /* -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%); */
 }
 
 /* --- O Título Principal --- */
@@ -89,16 +99,15 @@ body {
     font-family: var(--font-serif);
     font-size: clamp(2.8rem, 6vw, 4.8rem);
     font-weight: 700;
-    color: var(--color-gold-secondary);
+    color: var(--color-gold-secondary); /* Dourado mais brilhante */
     line-height: 1.2;
     margin-bottom: 15px;
-    /* z-index não é mais necessário aqui, pois o container pai já está acima */
 }
 
 /* --- O Subtítulo --- */
 .subtitle {
     font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: var(--color-gold-primary);
+    color: var(--color-gold-primary); /* Dourado principal */
     margin-bottom: 30px;
     max-width: 600px;
     margin-left: auto;
@@ -124,18 +133,18 @@ body {
 .cta-button:hover,
 .cta-button:focus {
     background-color: var(--color-gold-primary);
-    color: var(--color-background-dark);
+    color: var(--color-background-deep); /* Contraste com o fundo */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 194, 154, 0.2);
+    box-shadow: 0 4px 15px rgba(200, 159, 108, 0.2); /* Sombra baseada no dourado */
 }
 
 /* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
 .manifesto-section {
-    background-color: var(--color-background-medium);
+    background-color: var(--color-background-medium); /* Fundo sutilmente diferente */
     padding: 80px 0;
-    border-top: 1px solid rgba(212, 194, 154, 0.1);
     position: relative;
-    z-index: 1;
+    z-index: 0; /* Fica na camada normal */
+    border-top: 1px solid rgba(200, 159, 108, 0.1); /* Linha divisória sutil */
 }
 
 /* --- Título Padrão de Seção --- */
@@ -162,7 +171,7 @@ body {
     max-width: 750px;
     margin: 0 auto;
     text-align: justify;
-    color: var(--color-gold-soft);
+    color: var(--color-gold-soft); /* Dourado mais suave para leitura */
     font-size: clamp(1rem, 2vw, 1.1rem);
     line-height: 1.8;
 }
@@ -177,11 +186,11 @@ body {
 
 /* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
 .ebook-section {
-    background-color: var(--color-background-dark); /* Voltando ao mais escuro */
+    background-color: var(--color-background-medium); /* Mesmo fundo da seção anterior */
     padding: 80px 0;
     position: relative;
-    z-index: 1;
-    border-top: 1px solid rgba(212, 194, 154, 0.1); /* Adicionando borda para separar */
+    z-index: 1; /* Acima da seção manifesto se houver efeitos */
+    border-top: 1px solid rgba(200, 159, 108, 0.08); /* Linha ainda mais sutil */
 }
 
 .ebook-layout {
@@ -206,7 +215,7 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
     display: inline-block;
 }
 
@@ -252,7 +261,7 @@ body {
 .form-label {
     display: block;
     font-size: 0.9rem;
-    color: var(--color-gold-soft); /* Ajuste leve na cor */
+    color: var(--color-gold-primary); /* Label um pouco mais destacado */
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -260,8 +269,8 @@ body {
 .form-input {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid rgba(212, 194, 154, 0.3);
-    background-color: rgba(0, 0, 0, 0.3); /* Leve ajuste na transparência */
+    border: 1px solid rgba(200, 159, 108, 0.3); /* Borda sutil dourada */
+    background-color: rgba(0, 0, 0, 0.3);
     color: var(--color-gold-primary);
     border-radius: 4px;
     font-size: 1rem;
@@ -270,14 +279,14 @@ body {
 }
 
 .form-input::placeholder {
-    color: rgba(212, 194, 154, 0.5);
+    color: rgba(200, 159, 108, 0.5); /* Placeholder com cor baseada na paleta */
     font-style: italic;
 }
 
 .form-input:focus {
     outline: none;
     border-color: var(--color-gold-primary);
-    box-shadow: 0 0 10px rgba(212, 194, 154, 0.2);
+    box-shadow: 0 0 10px rgba(200, 159, 108, 0.2);
 }
 
 .form-submit-button {
@@ -289,7 +298,7 @@ body {
 
 .privacy-note {
     font-size: 0.85rem;
-    color: rgba(212, 194, 154, 0.7);
+    color: rgba(200, 159, 108, 0.7); /* Nota de privacidade sutil */
     margin-top: 20px;
     text-align: center;
     display: flex;
@@ -305,6 +314,13 @@ body {
 
 /* --- Ajustes Responsivos Globais --- */
 @media (max-width: 768px) {
+    .hero-section {
+        /* Ajustar padding se necessário em tablet */
+    }
+     .hero-prometheus-image {
+         max-height: 45vh;
+     }
+
     .manifesto-section,
     .ebook-section {
         padding: 60px 0;
@@ -326,8 +342,8 @@ body {
     }
 
      .ebook-cover {
-        max-width: 60%;
-        margin-bottom: 20px;
+        max-width: 60%; /* Ajuste conforme necessário */
+        margin-bottom: 30px; /* Mais espaço abaixo da capa */
     }
 
      .ebook-content-column {
@@ -336,7 +352,8 @@ body {
 
      .ebook-benefits {
          text-align: left;
-         display: inline-block;
+         display: inline-block; /* Para centralizar o bloco */
+         max-width: 100%; /* Garante que não ultrapasse */
      }
 
      .form-label {
@@ -346,8 +363,12 @@ body {
 
 @media (max-width: 480px) {
     .hero-section {
-        background-attachment: scroll; /* Desativa parallax em mobile (pode consumir recursos) */
+        padding-top: 40px;
+        min-height: 95vh; /* Pode reduzir um pouco se a imagem ficar muito grande */
     }
+     .hero-prometheus-image {
+         max-height: 40vh;
+     }
 
     .manifesto-section,
     .ebook-section {
