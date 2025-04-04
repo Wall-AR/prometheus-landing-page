@@ -33,20 +33,20 @@
                 Desvende a chama do conhecimento interior e transforme sua realidade.
             </p>
             <div class="hero-button-group">
-                <a href="#manifesto" class="cta-button hero-nav-button">
+                <a href="#manifesto" class="cta-button hero-nav-button" aria-label="Ir para a seção Filosofia">
                     <i class="fas fa-scroll button-icon"></i> Descobrir Filosofia
                 </a>
-                <a href="#ebook-section" class="cta-button hero-nav-button primary-nav-button" id="heroCtaButton">
+                <a href="#ebook-section" class="cta-button hero-nav-button primary-nav-button" id="heroCtaButton" aria-label="Ir para a seção do Ebook Gratuito">
                     <i class="fas fa-book-open button-icon"></i> Receber Ebook
                 </a>
-                <a href="#pillars" class="cta-button hero-nav-button">
+                <a href="#pillars" class="cta-button hero-nav-button" aria-label="Ir para a seção Pilares do Conhecimento">
                     <i class="fas fa-columns button-icon"></i> Explorar Pilares
                 </a>
             </div>
         </div>
         <div class="hero-image-container">
              <!-- Imagem Principal - Certifique-se que 'input_file_0.png' está na raiz -->
-            <img src="capa1.png" alt="Prometheus segurando a chama do conhecimento" class="hero-prometheus-image">
+            <img src="input_file_0.png" alt="Prometheus segurando a chama do conhecimento" class="hero-prometheus-image">
         </div>
     </section>
     <!-- Fim da Seção 1 -->
@@ -80,7 +80,7 @@
             <div class="ebook-layout">
                 <div class="ebook-image-column">
                     <!-- Imagem do Ebook - Substitua pelo caminho real em images/ -->
-                    <img src="images/capacentelha.png" alt="Capa do Ebook Gratuito 'A Centelha do Despertar'" class="ebook-cover">
+                    <img src="images/ebook-placeholder.png" alt="Capa do Ebook Gratuito 'A Centelha do Despertar'" class="ebook-cover">
                 </div>
                 <div class="ebook-content-column">
                     <h3 class="ebook-subtitle">O que você descobrirá neste guia:</h3>
@@ -94,11 +94,11 @@
                     <form id="ebook-form" class="ebook-form" action="SUA_URL_DE_PROCESSAMENTO_AQUI" method="POST">
                         <div class="form-group">
                             <label for="name" class="form-label">Seu Nome:</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Como devemos chamá-lo(a)?" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Como devemos chamá-lo(a)?" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Seu Melhor Email:</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Onde enviaremos sua centelha?" required>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Onde enviaremos sua centelha?" required aria-required="true">
                         </div>
                         <button type="submit" class="cta-button form-submit-button">Quero Receber o Ebook!</button>
                     </form>
@@ -149,10 +149,10 @@
                 A jornada do despertar é mais poderosa quando compartilhada. Conecte-se conosco nas redes sociais para doses diárias de filosofia, debates e conteúdos exclusivos do Prometheus.
             </p>
             <div class="social-links-container">
-                <!-- Links Sociais - Substitua '#' pelos seus links REAIS -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="social-link youtube" aria-label="Prometheus no YouTube" title="Prometheus no YouTube"><i class="fab fa-youtube"></i> YouTube</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Prometheus no Instagram" title="Prometheus no Instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="Prometheus no TikTok" title="Prometheus no TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
+                <!-- Links Sociais ATUALIZADOS -->
+                <a href="https://www.youtube.com/@Prometheus36" target="_blank" rel="noopener noreferrer" class="social-link youtube" aria-label="Prometheus no YouTube" title="Prometheus no YouTube"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://www.instagram.com/prometheus.36/" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Prometheus no Instagram" title="Prometheus no Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@prometheus.36" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="Prometheus no TikTok" title="Prometheus no TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
                 <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="Prometheus no Twitter" title="Prometheus no Twitter"><i class="fab fa-twitter"></i> Twitter</a> -->
             </div>
         </div>
@@ -168,6 +168,8 @@
             <p class="footer-links">
                 <!-- Link da Política de Privacidade (Placeholder) -->
                 <a href="#privacy-policy" class="privacy-link">Política de Privacidade</a>
+                 <!-- Adicione outros links se necessário -->
+                 <!-- | <a href="#terms" class="privacy-link">Termos de Uso</a> -->
             </p>
         </div>
     </footer>
