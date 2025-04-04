@@ -1,15 +1,11 @@
 /* -------------------------------------------------- */
 /*             STYLE.CSS - A ALMA VISUAL              */
 /*         Onde damos forma e cor ao Prometheus       */
-/*    (Revisado com Imagem Redimensionada e 3 Botões) */
+/*                (Versão Final Base)                 */
 /* -------------------------------------------------- */
 
 /* --- Reset Básico e Fundamentos --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* --- Variáveis CSS Derivadas da Imagem --- */
 :root {
@@ -24,192 +20,36 @@
 }
 
 /* --- Estilos Globais do Corpo --- */
-body {
-    font-family: var(--font-sans);
-    background-color: var(--color-background-deep);
-    color: var(--color-gold-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+html { scroll-behavior: smooth; /* Rolagem suave para links internos */ }
+body { font-family: var(--font-sans); background-color: var(--color-background-deep); color: var(--color-gold-primary); line-height: 1.6; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
 
 /* --- Container Universal --- */
-.container {
-    width: 90%;
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    z-index: 1;
-}
+.container { width: 90%; max-width: 1140px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; position: relative; z-index: 1; }
 
 /* --- Seção 1: O Impacto Inicial (Hero Section) --- */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 0 0 0; /* Padding só no topo */
-    position: relative;
-    overflow: hidden;
-    background-color: var(--color-background-deep);
-    z-index: 1;
-}
-
-.hero-content-container {
-   padding-bottom: 8vh; /* Aumenta espaço entre texto/botões e imagem */
-   margin-top: auto; /* Ajuda a empurrar o conteúdo para o centro se a imagem for pequena */
-   z-index: 1;
-}
-
-/* --- O Título Principal --- */
-.main-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.6rem, 5.5vw, 4.5rem); /* Levemente reduzido */
-    font-weight: 700;
-    color: var(--color-gold-secondary);
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
-
-/* --- O Subtítulo --- */
-.subtitle {
-    font-size: clamp(1rem, 2.2vw, 1.2rem); /* Levemente reduzido */
-    color: var(--color-gold-primary);
-    margin-bottom: 40px; /* Mais espaço antes dos botões */
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Grupo de Botões Hero --- */
-.hero-button-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
-    gap: 15px; /* Espaço entre os botões */
-}
-
-/* --- Botão Padrão (Base para todos) --- */
-.cta-button {
-    font-family: var(--font-serif);
-    display: inline-flex; /* Para alinhar ícone e texto */
-    align-items: center;
-    gap: 8px; /* Espaço entre ícone e texto */
-    background-color: transparent;
-    border: 1px solid var(--color-gold-primary);
-    color: var(--color-gold-primary);
-    padding: 10px 25px; /* Botões um pouco menores */
-    border-radius: 50px;
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem); /* Tamanho de fonte ajustado */
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover,
-.cta-button:focus {
-    background-color: var(--color-gold-primary);
-    color: var(--color-background-deep);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(200, 159, 108, 0.2);
-}
-
-/* Estilo específico para o botão primário (Ebook) no grupo */
-.primary-nav-button {
-    border-color: var(--color-gold-secondary); /* Borda um pouco mais brilhante */
-    color: var(--color-gold-secondary);
-}
-.primary-nav-button:hover,
-.primary-nav-button:focus {
-     background-color: var(--color-gold-secondary);
-     box-shadow: 0 4px 20px rgba(224, 184, 112, 0.3); /* Sombra mais forte */
-}
-
-/* Ícone dentro do botão */
-.button-icon {
-    font-size: 0.9em; /* Tamanho relativo ao texto do botão */
-}
-
-
-/* --- Container da Imagem Hero --- */
-.hero-image-container {
-    width: 100%;
-    /* REDUÇÃO SIGNIFICATIVA: Tamanho máximo bem menor */
-    max-width: 320px; /* <<<<<<<<<<<<<<<<<<< AJUSTE PRINCIPAL */
-    margin: 0 auto; /* Centraliza */
-    padding: 0 15px;
-    line-height: 0;
-    margin-top: auto; /* Empurra para baixo */
-    margin-bottom: 5vh; /* Espaço abaixo da imagem */
-}
-
-/* Imagem Hero */
-.hero-prometheus-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    /* REMOVER max-height, deixar a largura controlar */
-    object-fit: contain; /* Garante visibilidade total */
-}
-
+.hero-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 60px 0 0 0; position: relative; overflow: hidden; background-color: var(--color-background-deep); z-index: 1; }
+.hero-content-container { padding-bottom: 8vh; margin-top: auto; z-index: 1; }
+.main-title { font-family: var(--font-serif); font-size: clamp(2.6rem, 5.5vw, 4.5rem); font-weight: 700; color: var(--color-gold-secondary); line-height: 1.2; margin-bottom: 15px; }
+.subtitle { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--color-gold-primary); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-button-group { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; }
+.cta-button { font-family: var(--font-serif); display: inline-flex; align-items: center; gap: 8px; background-color: transparent; border: 1px solid var(--color-gold-primary); color: var(--color-gold-primary); padding: 10px 25px; border-radius: 50px; font-size: clamp(0.9rem, 1.8vw, 1.1rem); text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
+.cta-button:hover, .cta-button:focus { background-color: var(--color-gold-primary); color: var(--color-background-deep); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(200, 159, 108, 0.2); }
+.primary-nav-button { border-color: var(--color-gold-secondary); color: var(--color-gold-secondary); }
+.primary-nav-button:hover, .primary-nav-button:focus { background-color: var(--color-gold-secondary); box-shadow: 0 4px 20px rgba(224, 184, 112, 0.3); }
+.button-icon { font-size: 0.9em; }
+.hero-image-container { width: 100%; max-width: 320px; margin: 0 auto; padding: 0 15px; line-height: 0; margin-top: auto; margin-bottom: 5vh; }
+.hero-prometheus-image { display: block; width: 100%; height: auto; object-fit: contain; }
 
 /* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
-.manifesto-section {
-    background-color: var(--color-background-medium);
-    padding: 80px 0;
-    position: relative;
-    z-index: 0;
-    border-top: 1px solid rgba(200, 159, 108, 0.1);
-}
-
-/* --- Título Padrão de Seção --- */
-.section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--color-gold-secondary);
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-/* --- Linha Divisória Sob o Título --- */
-.title-divider {
-    width: 80px;
-    height: 2px;
-    background-color: var(--color-gold-primary);
-    margin: 0 auto 40px auto;
-    border-radius: 1px;
-}
-
-/* --- Conteúdo do Manifesto --- */
-.manifesto-content {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: justify;
-    color: var(--color-gold-soft);
-    font-size: clamp(1rem, 2vw, 1.1rem);
-    line-height: 1.8;
-}
-
+.manifesto-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 0; border-top: 1px solid rgba(200, 159, 108, 0.1); }
+.section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3rem); color: var(--color-gold-secondary); text-align: center; margin-bottom: 15px; font-weight: 700; }
+.title-divider { width: 80px; height: 2px; background-color: var(--color-gold-primary); margin: 0 auto 40px auto; border-radius: 1px; }
+.manifesto-content { max-width: 750px; margin: 0 auto; text-align: justify; color: var(--color-gold-soft); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.8; }
 .manifesto-content p { margin-bottom: 20px; }
 .manifesto-content p:last-child { margin-bottom: 0; }
 
 /* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
-.ebook-section {
-    background-color: var(--color-background-medium);
-    padding: 80px 0;
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid rgba(200, 159, 108, 0.08);
-}
-
+.ebook-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.08); }
 .ebook-layout { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
 .ebook-image-column { flex: 1; min-width: 280px; text-align: center; }
 .ebook-content-column { flex: 1.5; min-width: 300px; }
@@ -224,17 +64,48 @@ body {
 .form-input { width: 100%; padding: 12px 15px; border: 1px solid rgba(200, 159, 108, 0.3); background-color: rgba(0, 0, 0, 0.3); color: var(--color-gold-primary); border-radius: 4px; font-size: 1rem; font-family: var(--font-sans); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
 .form-input::placeholder { color: rgba(200, 159, 108, 0.5); font-style: italic; }
 .form-input:focus { outline: none; border-color: var(--color-gold-primary); box-shadow: 0 0 10px rgba(200, 159, 108, 0.2); }
-.form-submit-button { width: 100%; padding: 15px 20px; font-size: clamp(1.1rem, 2.5vw, 1.3rem); margin-top: 10px; }
+.form-submit-button { width: 100%; padding: 15px 20px; font-size: clamp(1.1rem, 2.5vw, 1.3rem); margin-top: 10px; } /* Herda estilo .cta-button */
 .privacy-note { font-size: 0.85rem; color: rgba(200, 159, 108, 0.7); margin-top: 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .lock-icon { font-size: 0.9em; }
 
+/* --- Seção 4: Pilares do Conhecimento --- */
+.pillars-section { background-color: var(--color-background-deep); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.1); }
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+.pillar-item { text-align: center; background-color: var(--color-background-medium); padding: 30px 25px; border-radius: 8px; border: 1px solid rgba(200, 159, 108, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.pillar-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); }
+.pillar-icon { font-size: 2.5rem; color: var(--color-gold-secondary); margin-bottom: 20px; line-height: 1; }
+.pillar-title { font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-gold-primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.pillar-description { font-size: 0.95rem; color: var(--color-gold-soft); line-height: 1.7; }
+
+/* --- Seção 5: Junte-se à Tribo (Comunidade / Social) --- */
+.community-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.08); text-align: center; }
+.community-subtitle { max-width: 650px; margin: 0 auto 40px auto; color: var(--color-gold-soft); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.7; }
+.social-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; }
+.social-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-family: var(--font-serif); font-size: clamp(1rem, 2vw, 1.2rem); transition: all 0.3s ease; border: 1px solid transparent; min-width: 160px; justify-content: center; }
+.social-link.youtube { background-color: #FF0000; color: #ffffff; }
+.social-link.youtube:hover { background-color: #cc0000; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); }
+.social-link.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #ffffff; }
+.social-link.instagram:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(214, 36, 159, 0.4); }
+.social-link.tiktok { background-color: #000000; color: #ffffff; border: 1px solid #555; }
+.social-link.tiktok:hover { background-color: #222; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); }
+/* .social-link.twitter { background-color: #1DA1F2; color: #ffffff; } */
+/* .social-link.twitter:hover { background-color: #0c85d0; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3); } */
+
+/* --- Seção 6: Rodapé --- */
+.site-footer { background-color: var(--color-background-deep); padding: 40px 0; margin-top: auto; border-top: 1px solid rgba(200, 159, 108, 0.15); text-align: center; position: relative; z-index: 0; }
+.footer-content { /* Container já centraliza */ }
+.copyright, .footer-links { font-size: 0.85rem; color: var(--color-gold-soft); line-height: 1.5; }
+.copyright { margin-bottom: 10px; }
+.privacy-link { color: var(--color-gold-soft); text-decoration: none; transition: color 0.3s ease; }
+.privacy-link:hover { color: var(--color-gold-primary); text-decoration: underline; }
+/* Placeholder para elementos decorativos (folhas) */
+/* .site-footer::before, .site-footer::after { ... } */
 
 /* --- Ajustes Responsivos Globais --- */
 @media (max-width: 768px) {
     .hero-content-container { padding-bottom: 6vh; }
-    .hero-image-container { max-width: 280px; margin-bottom: 4vh;} /* Ajusta tamanho e margem em tablet */
-
-    .manifesto-section, .ebook-section { padding: 60px 0; }
+    .hero-image-container { max-width: 280px; margin-bottom: 4vh;}
+    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 60px 0; }
     .manifesto-content { text-align: left; }
     .ebook-layout { gap: 30px; flex-direction: column; }
     .ebook-image-column, .ebook-content-column { flex-basis: 100%; flex: none; }
@@ -242,24 +113,32 @@ body {
     .ebook-content-column { text-align: center; }
     .ebook-benefits { text-align: left; display: inline-block; max-width: 100%; }
     .form-label { text-align: left; }
+    .pillars-grid { gap: 30px; }
+    .social-links-container { gap: 15px; }
+    .social-link { min-width: 150px; padding: 10px 20px; }
 }
 
 @media (max-width: 480px) {
-    .hero-section { padding-top: 40px; min-height: 90vh; } /* Reduz min-height se necessário */
+    html { scroll-padding-top: 20px; /* Evita que conteúdo fique sob header fixo (se houver) */ }
+    .hero-section { padding-top: 40px; min-height: 90vh; }
     .hero-content-container { padding-bottom: 5vh; }
-    .hero-image-container { max-width: 240px; margin-bottom: 3vh;} /* Imagem ainda menor em mobile */
-    .main-title { font-size: clamp(2rem, 7vw, 2.8rem); } /* Título menor */
+    .hero-image-container { max-width: 240px; margin-bottom: 3vh;}
+    .main-title { font-size: clamp(2rem, 7vw, 2.8rem); }
     .subtitle { font-size: clamp(0.9rem, 3.5vw, 1.1rem); margin-bottom: 30px;}
-    .hero-button-group { flex-direction: column; gap: 12px; } /* Empilha botões */
-    .cta-button { padding: 9px 22px; font-size: clamp(0.85rem, 3vw, 1rem); } /* Botões menores */
-
-    .manifesto-section, .ebook-section { padding: 40px 0; }
+    .hero-button-group { flex-direction: column; gap: 12px; }
+    .cta-button { padding: 9px 22px; font-size: clamp(0.85rem, 3vw, 1rem); }
+    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 40px 0; }
     .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
     .title-divider { margin-bottom: 30px; }
     .manifesto-content { font-size: clamp(0.95rem, 4vw, 1rem); }
     .ebook-cover { max-width: 70%; }
     .form-input { padding: 10px 12px; }
     .form-submit-button { padding: 12px 15px; font-size: clamp(1rem, 2.8vw, 1.2rem); }
+    .pillars-grid { grid-template-columns: 1fr; gap: 25px; }
+    .pillar-item { padding: 25px 20px; }
+    .social-links-container { flex-direction: column; align-items: stretch; gap: 12px; }
+    .social-link { width: 100%; }
+    .copyright, .footer-links { font-size: 0.8rem; }
 }
 
 /* --- Fim dos Estilos --- */
