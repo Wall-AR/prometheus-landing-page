@@ -16,7 +16,7 @@
     <!-- Ícones: Símbolos arcanos para guiar o caminho (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Link para nossa folha de estilos (CSS): Onde a magia visual acontece (ainda vamos criá-la) -->
+    <!-- Link para nossa folha de estilos (CSS): Onde a magia visual acontece -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Favicon: O pequeno símbolo que marca nosso território nas abas (adicione o seu depois) -->
@@ -27,10 +27,7 @@
 
     <!-- Seção 1: O Impacto Inicial - Onde a primeira faísca acende -->
     <section id="hero" class="hero-section">
-        <div class="container">
-
-            <!-- A IMAGEM FOI REMOVIDA DAQUI -->
-            <!-- Ela agora será aplicada via CSS como fundo da .hero-section -->
+        <div class="container hero-content-container">
 
             <!-- O Título Principal: A questão que ecoa através dos tempos -->
             <h1 class="main-title">
@@ -44,26 +41,29 @@
             </p>
 
             <!-- A Chamada para Ação (CTA): O primeiro passo para reivindicar a centelha -->
-            <a href="#ebook-section" class="cta-button primary-cta">
+            <!-- Nota de Wall: Este botão ganhará vida... em breve. -->
+            <a href="#ebook-section" class="cta-button primary-cta" id="heroCtaButton">
                 Baixar Ebook Gratuito: A Centelha do Despertar
             </a>
 
         </div>
+
+        <!-- A Imagem Central: O Titã e sua dádiva. Posicionada abaixo do conteúdo principal. -->
+        <!-- Nota de Wall: A imagem 1:1 agora reside no fluxo, um pilar visual. -->
+        <div class="hero-image-container">
+            <!-- Usando a imagem 1:1 fornecida -->
+            <img src="input_file_0.png" alt="Prometheus segurando a chama do conhecimento" class="hero-prometheus-image">
+        </div>
+
     </section>
     <!-- Fim da Seção 1 -->
 
-    <!-- O restante do HTML permanece o mesmo -->
-    <!-- ... (Seção Manifesto, Seção Ebook, etc.) ... -->
-
-        <!-- Seção 2: O Chamado de Prometheus - Onde a filosofia se revela -->
+    <!-- Seção 2: O Chamado de Prometheus - Onde a filosofia se revela -->
     <section id="manifesto" class="manifesto-section">
         <div class="container">
 
             <!-- Título da Seção: A convocação para ouvir -->
-            <!-- Nota de Wall: Não basta ver o fogo, é preciso entender seu chamado. -->
             <h2 class="section-title">Ouça o Chamado: Por Que Prometheus?</h2>
-
-            <!-- Linha Decorativa (Opcional): Um traço sutil, como um pensamento se formando -->
             <div class="title-divider"></div>
 
             <!-- O Corpo do Manifesto: O espaço para sua voz autêntica -->
@@ -89,7 +89,6 @@
         <div class="container">
 
             <!-- Título da Seção: O convite para receber a dádiva -->
-            <!-- Nota de Wall: O conhecimento compartilhado é fogo que se multiplica. -->
             <h2 class="section-title">Receba a Centelha: Seu Guia Gratuito para o Despertar</h2>
             <div class="title-divider"></div>
 
@@ -97,9 +96,9 @@
                 <!-- Coluna da Imagem do Ebook -->
                 <div class="ebook-image-column">
                     <!-- Nota de Wall: A representação visual da sabedoria contida. Use uma imagem atraente do seu ebook aqui. -->
+                    <!-- Lembre-se de criar a pasta 'images' e colocar sua capa de ebook lá -->
                     <img src="images/ebook-placeholder.png" alt="Capa do Ebook Gratuito 'A Centelha do Despertar'" class="ebook-cover">
-                    <!-- Substitua 'images/ebook-placeholder.png' pelo caminho real da imagem da capa do seu ebook. -->
-                    <!-- Por enquanto, criei um placeholder. Você precisará criar a pasta 'images' e colocar uma imagem lá, ou ajustar o caminho. -->
+                    <!-- Substitua 'images/ebook-placeholder.png' pelo caminho real da imagem da capa do seu ebook (ex: images/minha-capa.png). -->
                 </div>
 
                 <!-- Coluna do Conteúdo e Formulário -->
@@ -131,7 +130,7 @@
                     </form>
                     <!-- Nota de Privacidade: O respeito pelo espaço digital do outro. -->
                     <p class="privacy-note">
-                        <i class="fas fa-lock lock-icon"></i> Respeitamos sua privacidade. Seu email está seguro conosco e não enviaremos spam.
+                        <i class="fas fa-lock lock-icon"></i> Respeitamos sua privacidade. Seu email está seguro conosco.
                     </p>
                 </div>
             </div>
@@ -140,7 +139,8 @@
     </section>
     <!-- Fim da Seção 3 -->
 
-    <!-- (O Rodapé virá no final de todas as seções) -->
+    <!-- As próximas seções (Pilares, Comunidade, Rodapé) virão aqui... -->
+
 
     <!-- Scripts (se necessários) geralmente vão aqui, antes de fechar o </body> -->
     <!-- <script src="script.js"></script> -->
