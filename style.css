@@ -1,7 +1,7 @@
 /* -------------------------------------------------- */
 /*             STYLE.CSS - A ALMA VISUAL              */
 /*         Onde damos forma e cor ao Prometheus       */
-/*                (Versão Final Base)                 */
+/*       (Versão Final Base - Imagem Maior, Glow)     */
 /* -------------------------------------------------- */
 
 /* --- Reset Básico e Fundamentos --- */
@@ -14,7 +14,13 @@
     --color-gold-soft: #a87e4a;
     --color-gold-primary: #c89f6c;
     --color-gold-secondary: #e0b870;
-    --color-flame-highlight: #f8c880;
+    --color-flame-highlight: #f8c880; /* Pode ser usado para o glow */
+
+    /* RGB versions for rgba() */
+    --color-gold-primary-rgb: 200, 159, 108;
+    --color-gold-secondary-rgb: 224, 184, 112;
+    --color-flame-highlight-rgb: 248, 200, 128;
+
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
 }
@@ -27,118 +33,143 @@ body { font-family: var(--font-sans); background-color: var(--color-background-d
 .container { width: 90%; max-width: 1140px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; position: relative; z-index: 1; }
 
 /* --- Seção 1: O Impacto Inicial (Hero Section) --- */
-.hero-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 60px 0 0 0; position: relative; overflow: hidden; background-color: var(--color-background-deep); z-index: 1; }
-.hero-content-container { padding-bottom: 8vh; margin-top: auto; z-index: 1; }
-.main-title { font-family: var(--font-serif); font-size: clamp(2.6rem, 5.5vw, 4.5rem); font-weight: 700; color: var(--color-gold-secondary); line-height: 1.2; margin-bottom: 15px; }
-.subtitle { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--color-gold-primary); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-.hero-button-group { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; }
-.cta-button { font-family: var(--font-serif); display: inline-flex; align-items: center; gap: 8px; background-color: transparent; border: 1px solid var(--color-gold-primary); color: var(--color-gold-primary); padding: 10px 25px; border-radius: 50px; font-size: clamp(0.9rem, 1.8vw, 1.1rem); text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
-.cta-button:hover, .cta-button:focus { background-color: var(--color-gold-primary); color: var(--color-background-deep); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(200, 159, 108, 0.2); }
+.hero-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 8vh 0 0 0; /* Aumenta padding superior */ position: relative; overflow: hidden; background-color: var(--color-background-deep); z-index: 1; }
+.hero-content-container { padding-bottom: 10vh; /* Aumenta espaço antes da imagem */ margin-top: auto; z-index: 1; }
+.main-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 4.8rem); /* Tamanho mantido, mas mais espaço */ font-weight: 700; color: var(--color-gold-secondary); line-height: 1.2; margin-bottom: 20px; /* Mais espaço */ }
+.subtitle { font-size: clamp(1.05rem, 2.3vw, 1.25rem); /* Levemente maior */ color: var(--color-gold-primary); margin-bottom: 45px; /* Mais espaço */ max-width: 650px; margin-left: auto; margin-right: auto; }
+.hero-button-group { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 18px; /* Mais espaço entre botões */ }
+.cta-button { font-family: var(--font-serif); display: inline-flex; align-items: center; gap: 10px; /* Aumenta gap */ background-color: transparent; border: 1px solid var(--color-gold-primary); color: var(--color-gold-primary); padding: 12px 30px; /* Botões ligeiramente maiores */ border-radius: 50px; font-size: clamp(0.95rem, 1.9vw, 1.15rem); text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
+.cta-button:hover, .cta-button:focus { background-color: var(--color-gold-primary); color: var(--color-background-deep); transform: translateY(-3px); /* Hover mais pronunciado */ box-shadow: 0 6px 18px rgba(var(--color-gold-primary-rgb), 0.25); }
+.cta-button:focus { outline: 2px solid var(--color-gold-secondary); outline-offset: 2px; /* Melhor visibilidade do foco */ }
 .primary-nav-button { border-color: var(--color-gold-secondary); color: var(--color-gold-secondary); }
-.primary-nav-button:hover, .primary-nav-button:focus { background-color: var(--color-gold-secondary); box-shadow: 0 4px 20px rgba(224, 184, 112, 0.3); }
-.button-icon { font-size: 0.9em; }
-.hero-image-container { width: 100%; max-width: 320px; margin: 0 auto; padding: 0 15px; line-height: 0; margin-top: auto; margin-bottom: 5vh; }
+.primary-nav-button:hover, .primary-nav-button:focus { background-color: var(--color-gold-secondary); box-shadow: 0 6px 22px rgba(var(--color-gold-secondary-rgb), 0.35); }
+.button-icon { font-size: 1em; /* Ícone um pouco maior */ }
+.hero-image-container { width: 100%; max-width: 480px; /* <<<<<<<<<<<<<<<<<<< IMAGEM MAIOR */ margin: 0 auto; padding: 0 15px; line-height: 0; margin-top: auto; margin-bottom: 5vh; }
 .hero-prometheus-image { display: block; width: 100%; height: auto; object-fit: contain; }
 
 /* --- Seção 2: O Chamado de Prometheus (Manifesto) --- */
-.manifesto-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 0; border-top: 1px solid rgba(200, 159, 108, 0.1); }
-.section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3rem); color: var(--color-gold-secondary); text-align: center; margin-bottom: 15px; font-weight: 700; }
-.title-divider { width: 80px; height: 2px; background-color: var(--color-gold-primary); margin: 0 auto 40px auto; border-radius: 1px; }
-.manifesto-content { max-width: 750px; margin: 0 auto; text-align: justify; color: var(--color-gold-soft); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.8; }
-.manifesto-content p { margin-bottom: 20px; }
+.manifesto-section { background-color: var(--color-background-medium); padding: 100px 0; /* Mais padding vertical */ position: relative; z-index: 0; border-top: 1px solid rgba(var(--color-gold-primary-rgb), 0.1); }
+.section-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5.5vw, 3.2rem); /* Títulos de seção maiores */ color: var(--color-gold-secondary); text-align: center; margin-bottom: 20px; font-weight: 700; }
+.title-divider { width: 90px; /* Divisor maior */ height: 2px; background-color: var(--color-gold-primary); margin: 0 auto 50px auto; /* Mais espaço abaixo */ border-radius: 1px; }
+.manifesto-content { max-width: 800px; /* Texto pode ser um pouco mais largo */ margin: 0 auto; text-align: justify; color: var(--color-gold-soft); font-size: clamp(1.05rem, 2.1vw, 1.15rem); /* Texto ligeiramente maior */ line-height: 1.85; /* Mais espaçamento */ }
+.manifesto-content p { margin-bottom: 25px; }
 .manifesto-content p:last-child { margin-bottom: 0; }
 
 /* --- Seção 3: A Chama Interior (Oferta do Ebook) --- */
-.ebook-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.08); }
-.ebook-layout { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-.ebook-image-column { flex: 1; min-width: 280px; text-align: center; }
-.ebook-content-column { flex: 1.5; min-width: 300px; }
-.ebook-cover { max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5); display: inline-block; }
-.ebook-subtitle { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--color-gold-secondary); margin-bottom: 20px; font-weight: 700; }
-.ebook-benefits { list-style: none; padding-left: 0; margin-bottom: 30px; }
-.ebook-benefits li { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: clamp(0.95rem, 1.8vw, 1.05rem); color: var(--color-gold-soft); }
-.benefit-icon { color: var(--color-gold-primary); margin-right: 12px; font-size: 1.1em; margin-top: 0.1em; width: 20px; text-align: center; }
-.ebook-form { margin-top: 20px; }
-.form-group { margin-bottom: 20px; }
-.form-label { display: block; font-size: 0.9rem; color: var(--color-gold-primary); margin-bottom: 5px; font-weight: bold; }
-.form-input { width: 100%; padding: 12px 15px; border: 1px solid rgba(200, 159, 108, 0.3); background-color: rgba(0, 0, 0, 0.3); color: var(--color-gold-primary); border-radius: 4px; font-size: 1rem; font-family: var(--font-sans); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-.form-input::placeholder { color: rgba(200, 159, 108, 0.5); font-style: italic; }
-.form-input:focus { outline: none; border-color: var(--color-gold-primary); box-shadow: 0 0 10px rgba(200, 159, 108, 0.2); }
-.form-submit-button { width: 100%; padding: 15px 20px; font-size: clamp(1.1rem, 2.5vw, 1.3rem); margin-top: 10px; } /* Herda estilo .cta-button */
-.privacy-note { font-size: 0.85rem; color: rgba(200, 159, 108, 0.7); margin-top: 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
-.lock-icon { font-size: 0.9em; }
+.ebook-section { background-color: var(--color-background-medium); padding: 100px 0; position: relative; z-index: 1; border-top: 1px solid rgba(var(--color-gold-primary-rgb), 0.08); }
+.ebook-layout { display: flex; align-items: center; gap: 60px; /* Mais espaço */ flex-wrap: wrap; }
+.ebook-image-column { flex: 1; min-width: 300px; /* Aumenta min-width */ text-align: center; }
+.ebook-content-column { flex: 1.5; min-width: 320px; }
+.ebook-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* Suaviza mais */
+    display: inline-block;
+    position: relative; /* Para o brilho */
+    /* EFEITO GLOW NO EBOOK */
+    box-shadow:
+        0 0 12px 3px rgba(var(--color-flame-highlight-rgb), 0.15), /* Glow interno mais sutil */
+        0 0 25px 8px rgba(var(--color-gold-primary-rgb), 0.1),  /* Glow externo principal */
+        0 8px 30px rgba(0, 0, 0, 0.6); /* Sombra base mais forte */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transição mais longa */
+}
+.ebook-cover:hover {
+    transform: scale(1.03) translateY(-5px); /* Leve zoom e elevação no hover */
+     box-shadow:
+        0 0 18px 5px rgba(var(--color-flame-highlight-rgb), 0.25),
+        0 0 35px 12px rgba(var(--color-gold-primary-rgb), 0.18),
+        0 12px 40px rgba(0, 0, 0, 0.7);
+}
+.ebook-subtitle { font-family: var(--font-serif); font-size: clamp(1.5rem, 3.2vw, 1.9rem); color: var(--color-gold-secondary); margin-bottom: 25px; font-weight: 700; }
+.ebook-benefits { list-style: none; padding-left: 0; margin-bottom: 35px; }
+.ebook-benefits li { margin-bottom: 18px; display: flex; align-items: flex-start; font-size: clamp(1rem, 1.9vw, 1.1rem); color: var(--color-gold-soft); }
+.benefit-icon { color: var(--color-gold-primary); margin-right: 15px; font-size: 1.15em; margin-top: 0.1em; width: 22px; text-align: center; }
+.ebook-form { margin-top: 25px; }
+.form-group { margin-bottom: 22px; }
+.form-label { display: block; font-size: 0.95rem; color: var(--color-gold-primary); margin-bottom: 6px; font-weight: bold; }
+.form-input { width: 100%; padding: 14px 18px; /* Mais padding */ border: 1px solid rgba(var(--color-gold-primary-rgb), 0.35); background-color: rgba(0, 0, 0, 0.35); color: var(--color-gold-primary); border-radius: 5px; font-size: 1.05rem; font-family: var(--font-sans); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.form-input::placeholder { color: rgba(var(--color-gold-primary-rgb), 0.55); font-style: italic; }
+.form-input:focus { outline: none; border-color: var(--color-gold-primary); box-shadow: 0 0 12px rgba(var(--color-gold-primary-rgb), 0.25); }
+.form-submit-button { width: 100%; padding: 16px 22px; font-size: clamp(1.15rem, 2.6vw, 1.35rem); margin-top: 15px; } /* Botão maior */
+.privacy-note { font-size: 0.9rem; color: rgba(var(--color-gold-primary-rgb), 0.75); margin-top: 25px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.lock-icon { font-size: 1em; }
 
 /* --- Seção 4: Pilares do Conhecimento --- */
-.pillars-section { background-color: var(--color-background-deep); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.1); }
-.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
-.pillar-item { text-align: center; background-color: var(--color-background-medium); padding: 30px 25px; border-radius: 8px; border: 1px solid rgba(200, 159, 108, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.pillar-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); }
-.pillar-icon { font-size: 2.5rem; color: var(--color-gold-secondary); margin-bottom: 20px; line-height: 1; }
-.pillar-title { font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-gold-primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-.pillar-description { font-size: 0.95rem; color: var(--color-gold-soft); line-height: 1.7; }
+.pillars-section { background-color: var(--color-background-deep); padding: 100px 0; position: relative; z-index: 1; border-top: 1px solid rgba(var(--color-gold-primary-rgb), 0.12); }
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Colunas um pouco maiores */ gap: 45px; margin-top: 50px; }
+.pillar-item { text-align: center; background-color: var(--color-background-medium); padding: 35px 30px; border-radius: 10px; /* Mais arredondado */ border: 1px solid rgba(var(--color-gold-primary-rgb), 0.15); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.pillar-item:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
+.pillar-icon { font-size: 2.8rem; color: var(--color-gold-secondary); margin-bottom: 25px; line-height: 1; }
+.pillar-title { font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-gold-primary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+.pillar-description { font-size: 1rem; color: var(--color-gold-soft); line-height: 1.75; }
 
 /* --- Seção 5: Junte-se à Tribo (Comunidade / Social) --- */
-.community-section { background-color: var(--color-background-medium); padding: 80px 0; position: relative; z-index: 1; border-top: 1px solid rgba(200, 159, 108, 0.08); text-align: center; }
-.community-subtitle { max-width: 650px; margin: 0 auto 40px auto; color: var(--color-gold-soft); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.7; }
-.social-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; }
-.social-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-family: var(--font-serif); font-size: clamp(1rem, 2vw, 1.2rem); transition: all 0.3s ease; border: 1px solid transparent; min-width: 160px; justify-content: center; }
+.community-section { background-color: var(--color-background-medium); padding: 100px 0; position: relative; z-index: 1; border-top: 1px solid rgba(var(--color-gold-primary-rgb), 0.1); text-align: center; }
+.community-subtitle { max-width: 700px; margin: 0 auto 50px auto; color: var(--color-gold-soft); font-size: clamp(1.05rem, 2.1vw, 1.15rem); line-height: 1.75; }
+.social-links-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 25px; }
+.social-link { display: inline-flex; align-items: center; gap: 12px; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-family: var(--font-serif); font-size: clamp(1.05rem, 2.1vw, 1.25rem); transition: all 0.35s ease; border: 1px solid transparent; min-width: 180px; justify-content: center; }
+.social-link .fab { font-size: 1.2em; /* Ícones sociais maiores */ }
 .social-link.youtube { background-color: #FF0000; color: #ffffff; }
-.social-link.youtube:hover { background-color: #cc0000; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); }
+.social-link.youtube:hover { background-color: #cc0000; transform: translateY(-3px); box-shadow: 0 5px 18px rgba(255, 0, 0, 0.35); }
 .social-link.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #ffffff; }
-.social-link.instagram:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(214, 36, 159, 0.4); }
-.social-link.tiktok { background-color: #000000; color: #ffffff; border: 1px solid #555; }
-.social-link.tiktok:hover { background-color: #222; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); }
+.social-link.instagram:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 5px 18px rgba(214, 36, 159, 0.45); }
+.social-link.tiktok { background-color: #000000; color: #ffffff; border: 1px solid #666; }
+.social-link.tiktok:hover { background-color: #222; transform: translateY(-3px); box-shadow: 0 5px 18px rgba(255, 255, 255, 0.15); }
 /* .social-link.twitter { background-color: #1DA1F2; color: #ffffff; } */
-/* .social-link.twitter:hover { background-color: #0c85d0; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3); } */
+/* .social-link.twitter:hover { background-color: #0c85d0; transform: translateY(-3px); box-shadow: 0 5px 18px rgba(29, 161, 242, 0.35); } */
 
 /* --- Seção 6: Rodapé --- */
-.site-footer { background-color: var(--color-background-deep); padding: 40px 0; margin-top: auto; border-top: 1px solid rgba(200, 159, 108, 0.15); text-align: center; position: relative; z-index: 0; }
-.footer-content { /* Container já centraliza */ }
-.copyright, .footer-links { font-size: 0.85rem; color: var(--color-gold-soft); line-height: 1.5; }
-.copyright { margin-bottom: 10px; }
-.privacy-link { color: var(--color-gold-soft); text-decoration: none; transition: color 0.3s ease; }
+.site-footer { background-color: var(--color-background-deep); padding: 50px 0; margin-top: auto; border-top: 1px solid rgba(var(--color-gold-primary-rgb), 0.18); text-align: center; position: relative; z-index: 0; }
+.copyright, .footer-links { font-size: 0.9rem; color: var(--color-gold-soft); line-height: 1.6; }
+.copyright { margin-bottom: 12px; }
+.privacy-link { color: var(--color-gold-soft); text-decoration: none; transition: color 0.3s ease; margin: 0 10px; }
 .privacy-link:hover { color: var(--color-gold-primary); text-decoration: underline; }
 /* Placeholder para elementos decorativos (folhas) */
 /* .site-footer::before, .site-footer::after { ... } */
 
 /* --- Ajustes Responsivos Globais --- */
+@media (max-width: 992px) { /* Adiciona breakpoint para tablets maiores */
+    .hero-image-container { max-width: 420px; }
+    .pillars-grid { gap: 35px; }
+}
+
 @media (max-width: 768px) {
+    html { scroll-padding-top: 10px; }
     .hero-content-container { padding-bottom: 6vh; }
-    .hero-image-container { max-width: 280px; margin-bottom: 4vh;}
-    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 60px 0; }
+    .hero-image-container { max-width: 360px; margin-bottom: 4vh;} /* Ajusta tablet */
+    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 70px 0; } /* Padding ajustado */
     .manifesto-content { text-align: left; }
-    .ebook-layout { gap: 30px; flex-direction: column; }
+    .ebook-layout { gap: 40px; flex-direction: column; }
     .ebook-image-column, .ebook-content-column { flex-basis: 100%; flex: none; }
-    .ebook-cover { max-width: 60%; margin-bottom: 30px; }
+    .ebook-cover { max-width: 70%; margin-bottom: 40px; } /* Mais espaço */
     .ebook-content-column { text-align: center; }
     .ebook-benefits { text-align: left; display: inline-block; max-width: 100%; }
     .form-label { text-align: left; }
     .pillars-grid { gap: 30px; }
-    .social-links-container { gap: 15px; }
-    .social-link { min-width: 150px; padding: 10px 20px; }
+    .social-links-container { gap: 18px; }
+    .social-link { min-width: 160px; padding: 12px 25px; }
 }
 
 @media (max-width: 480px) {
-    html { scroll-padding-top: 20px; /* Evita que conteúdo fique sob header fixo (se houver) */ }
     .hero-section { padding-top: 40px; min-height: 90vh; }
     .hero-content-container { padding-bottom: 5vh; }
-    .hero-image-container { max-width: 240px; margin-bottom: 3vh;}
+    .hero-image-container { max-width: 280px; margin-bottom: 3vh;} /* Ajusta mobile */
     .main-title { font-size: clamp(2rem, 7vw, 2.8rem); }
-    .subtitle { font-size: clamp(0.9rem, 3.5vw, 1.1rem); margin-bottom: 30px;}
-    .hero-button-group { flex-direction: column; gap: 12px; }
-    .cta-button { padding: 9px 22px; font-size: clamp(0.85rem, 3vw, 1rem); }
-    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 40px 0; }
+    .subtitle { font-size: clamp(0.95rem, 3.8vw, 1.15rem); margin-bottom: 35px;}
+    .hero-button-group { flex-direction: column; gap: 15px; }
+    .cta-button { padding: 10px 25px; font-size: clamp(0.9rem, 3.5vw, 1.05rem); }
+    .manifesto-section, .ebook-section, .pillars-section, .community-section, .site-footer { padding: 50px 0; }
     .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-    .title-divider { margin-bottom: 30px; }
-    .manifesto-content { font-size: clamp(0.95rem, 4vw, 1rem); }
-    .ebook-cover { max-width: 70%; }
-    .form-input { padding: 10px 12px; }
-    .form-submit-button { padding: 12px 15px; font-size: clamp(1rem, 2.8vw, 1.2rem); }
+    .title-divider { margin-bottom: 35px; }
+    .manifesto-content { font-size: clamp(1rem, 4.2vw, 1.05rem); }
+    .ebook-cover { max-width: 80%; } /* Capa maior em mobile */
+    .form-input { padding: 12px 15px; }
+    .form-submit-button { padding: 14px 20px; font-size: clamp(1.05rem, 3vw, 1.25rem); }
     .pillars-grid { grid-template-columns: 1fr; gap: 25px; }
-    .pillar-item { padding: 25px 20px; }
-    .social-links-container { flex-direction: column; align-items: stretch; gap: 12px; }
-    .social-link { width: 100%; }
-    .copyright, .footer-links { font-size: 0.8rem; }
+    .pillar-item { padding: 30px 25px; }
+    .social-links-container { flex-direction: column; align-items: stretch; gap: 15px; }
+    .social-link { width: 100%; padding: 13px 25px; }
+    .copyright, .footer-links { font-size: 0.85rem; }
 }
 
 /* --- Fim dos Estilos --- */
